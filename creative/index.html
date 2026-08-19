@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Creative Work & Graphic Design Portfolio of Tikondwe Mathias Kaonga — ICT & Business Analyst" />
+  <meta name="author" content="Tikondwe Mathias Kaonga" />
+  <title>Creative Work | Tikondwe Mathias Kaonga</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html#home">Tikondwe<span>.</span></a>
+    <button class="menu" aria-label="Open navigation">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html#home">Home</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#capabilities">Capabilities</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="index.html">Creative Work</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container" style="padding:60px 0">
+  <div class="section-head">
+    <div><div class="number">PORTFOLIO / CREATIVE</div><h2>Creative Work</h2></div>
+    <p>Selected visual communication and graphic design work demonstrating my ability to translate ideas, information and business objectives into clear visual communication.</p>
+  </div>
+
+  <div class="grid grid-3">
+    <article class="card creative-card" onclick="openLightbox('Mmera Pure Soya Packaging Design', 'Brand Identity & Packaging', 'Brand identity and packaging visual design for a Malawi-based local food product.', 'Role: Brand / Graphic Designer | Tools: Canva / Photoshop')">
+      <h3 style="font-size:1.1rem;color:var(--accent)">Mmera Pure Soya</h3>
+      <p style="font-size:0.85rem;color:var(--muted);margin-top:4px">Brand Identity · Packaging</p>
+      <p style="font-size:0.9rem;margin-top:10px">Packaging design created for local product branding and market positioning.</p>
+    </article>
+
+    <article class="card creative-card" onclick="openLightbox('Digital Campaign Materials', 'Marketing & Campaign Design', 'Visual campaign assets created for online promotional reach.', 'Role: Graphic Designer | Tools: Canva / Digital Design Suite')">
+      <h3 style="font-size:1.1rem;color:var(--accent)">Campaign Visual Assets</h3>
+      <p style="font-size:0.85rem;color:var(--muted);margin-top:4px">Marketing & Campaign Design</p>
+      <p style="font-size:0.9rem;margin-top:10px">Structured campaign posters and promotional banners for digital media.</p>
+    </article>
+
+    <article class="card creative-card" onclick="openLightbox('Information & Service Card Design', 'Presentation & Information Design', 'Information design formatting service packages and corporate outlines into legible visual assets.', 'Role: Information Designer | Tools: Digital Design Tools')">
+      <h3 style="font-size:1.1rem;color:var(--accent)">Information & Service Cards</h3>
+      <p style="font-size:0.85rem;color:var(--muted);margin-top:4px">Presentation & Information Design</p>
+      <p style="font-size:0.9rem;margin-top:10px">Visual presentation assets organizing complex operational details into clear layouts.</p>
+    </article>
+  </div>
+</main>
+
+<div id="lightbox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:200;align-items:center;justify-content:center;padding:20px" onclick="closeLightbox()">
+  <div style="background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px;max-width:500px;width:100%;position:relative" onclick="event.stopPropagation()">
+    <button onclick="closeLightbox()" style="position:absolute;top:15px;right:15px;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer">×</button>
+    <h3 id="lbTitle" style="color:var(--accent);margin-bottom:8px"></h3>
+    <p id="lbCat" style="font-size:0.85rem;color:var(--muted);margin-bottom:12px;font-weight:600"></p>
+    <p id="lbDesc" style="font-size:0.95rem;margin-bottom:14px;color:var(--text)"></p>
+    <p id="lbMeta" style="font-size:0.82rem;color:var(--accent)"></p>
+  </div>
+</div>
+
+<footer>
+  <div class="container footer-inner">
+    <div><strong>Tikondwe Mathias Kaonga</strong> — ICT & Business Analyst</div>
+    <div>BSc (Hons) Computing · University of Greenwich</div>
+    <div>
+      <a href="https://github.com/Tikondwe138" target="_blank" rel="noopener noreferrer">GitHub</a> · 
+      <a href="https://www.linkedin.com/in/tikondwe-k-3b1062323" target="_blank" rel="noopener noreferrer">LinkedIn</a> · 
+      <a href="mailto:mathiusmelo@gmail.com">Email</a>
+    </div>
+    <div style="margin-top:10px;font-size:0.8rem">© 2026 Tikondwe Mathias Kaonga</div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
