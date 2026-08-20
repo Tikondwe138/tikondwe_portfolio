@@ -88,8 +88,80 @@ section { padding: 90px 0; border-top: 1px solid var(--line); }
 .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 17px; }
 .tag { font-size: 0.72rem; padding: 5px 8px; border: 1px solid var(--line); border-radius: 7px; color: #c5d2d8; }
 .number { font-size: 0.76rem; color: var(--accent); font-weight: 800; letter-spacing: 0.1em; }
-.project-card { display: flex; flex-direction: column; min-height: 285px; }
-.project-card .project-body { flex: 1; }
+.project-card { display: flex; flex-direction: column; min-height: 380px; overflow: hidden; padding: 0; }
+.project-card .project-body { flex: 1; padding: 22px; display: flex; flex-direction: column; }
+.project-image { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: var(--surface-2); border-bottom: 1px solid var(--line); }
+.project-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+.project-card:hover .project-image img { transform: scale(1.03); }
+.project-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.project-status { font-size: 0.7rem; padding: 3px 8px; border-radius: 6px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border: 1px solid var(--line); }
+.project-status.completed { color: var(--accent); border-color: rgba(99, 211, 197, 0.4); background: rgba(99, 211, 197, 0.08); }
+.project-status.incomplete { color: #ffb86c; border-color: rgba(255, 184, 108, 0.4); background: rgba(255, 184, 108, 0.08); }
+.project-status.concept { color: var(--accent-2); border-color: rgba(141, 184, 255, 0.4); background: rgba(141, 184, 255, 0.08); }
+.project-actions { margin-top: auto; padding-top: 16px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.project-actions a { font-size: 0.82rem; font-weight: 700; color: var(--accent); transition: color 0.2s; }
+.project-actions a.secondary-action { color: var(--text); }
+.project-actions a:hover { text-decoration: underline; }
+/* Creative Section Fade Slideshow */
+.creative-showcase { display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; margin-top: 10px; }
+.creative-slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  box-shadow: var(--shadow);
+}
+.creative-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s ease-in-out, visibility 1.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.creative-slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+}
+.creative-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.creative-indicators {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.creative-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.creative-dot.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.2);
+}
+.creative-cta { margin-top: 8px; text-align: center; }
+.creative-cta .btn { padding: 14px 24px; font-size: 0.95rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .creative-slide { transition: none !important; }
+}
+
 .timeline { position: relative; margin-left: 8px; }
 .timeline::before { content: ""; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 1px; background: var(--line); }
 .timeline-item { position: relative; padding: 0 0 34px 42px; }
