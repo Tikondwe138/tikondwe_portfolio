@@ -95,6 +95,7 @@ section { padding: 90px 0; border-top: 1px solid var(--line); }
 .project-card:hover .project-image img { transform: scale(1.03); }
 .project-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .project-status { font-size: 0.7rem; padding: 3px 8px; border-radius: 6px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border: 1px solid var(--line); }
+.project-status.in-development { color: #ff5555; border-color: rgba(255, 85, 85, 0.4); background: rgba(255, 85, 85, 0.08); }
 .project-status.completed { color: var(--accent); border-color: rgba(99, 211, 197, 0.4); background: rgba(99, 211, 197, 0.08); }
 .project-status.incomplete { color: #ffb86c; border-color: rgba(255, 184, 108, 0.4); background: rgba(255, 184, 108, 0.08); }
 .project-status.concept { color: var(--accent-2); border-color: rgba(141, 184, 255, 0.4); background: rgba(141, 184, 255, 0.08); }

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Project Case Study: NICO TechAssist ITSM by Tikondwe Mathias Kaonga" />
+  <title>NICO TechAssist ITSM | Tikondwe Mathias Kaonga</title>
+  <style>
+    :root {
+      --bg: #071018;
+      --surface: #0d1822;
+      --surface-hover: #12212e;
+      --text: #edf4f7;
+      --muted: #9fb0ba;
+      --line: rgba(255, 255, 255, 0.10);
+      --accent: #8db8ff;
+      --accent-hover: #abc9ff;
+      --accent-dim: rgba(141, 184, 255, 0.12);
+      --success: #38d39f;
+      --success-dim: rgba(56, 211, 159, 0.12);
+      --max: 880px;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 40px 20px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+    }
+
+    .back-nav {
+      margin-bottom: 32px;
+    }
+
+    a.back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    a.back:hover {
+      text-decoration: underline;
+      color: var(--accent-hover);
+    }
+
+    header {
+      margin-bottom: 36px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      transition: border-color 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    p, ul {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .disclaimer-box {
+      margin-top: 16px;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--muted);
+      border-radius: 4px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    /* Capabilities Grid */
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .capability-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .capability-item::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Roadmap Timeline */
+    .roadmap-list {
+      list-style: none;
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .roadmap-list::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--line);
+    }
+
+    .roadmap-step {
+      position: relative;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .roadmap-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .roadmap-step::before {
+      content: "";
+      position: absolute;
+      left: -21px;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--muted);
+    }
+
+    .roadmap-step.completed {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .roadmap-step.completed::before {
+      background: var(--success);
+      box-shadow: 0 0 8px var(--success);
+    }
+
+    .roadmap-step.current {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .roadmap-step.current::before {
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    /* Status Banner */
+    .status-banner {
+      background: rgba(56, 211, 159, 0.08);
+      border: 1px solid rgba(56, 211, 159, 0.25);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+    }
+
+    .status-banner h3 {
+      color: var(--success);
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Tech Stack Badges */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .tech-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line);
+      color: var(--text);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--accent);
+      color: #061316;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="back-nav">
+      <a href="../#projects" class="back">← Back to Portfolio</a>
+    </nav>
+
+    <header>
+      <span class="status-badge">IN DEVELOPMENT</span>
+      <h1>NICO TechAssist ITSM</h1>
+    </header>
+
+    <main>
+      <article class="card">
+        <h2>Overview</h2>
+        <p>A production-oriented, multi-tenant IT Service Management (ITSM) platform designed for Managed Service Providers (MSPs) and internal IT departments to manage support tickets, IT assets, service-level agreements, technician assignments, and operational history from a centralized system.</p>
+        
+        <div class="disclaimer-box">
+          <strong>Reference Case Notice:</strong> This platform is being developed as an independent software project, using NICO Technologies Limited as a reference use case for an MSP environment. It is not commissioned, owned, endorsed, or operated by NICO Technologies Limited.
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Problem Statement</h2>
+        <p>IT support operations become difficult to scale when service requests, hardware assets, technician assignments, SLA commitments, and historical records are fragmented across spreadsheets, messaging platforms, email, and disconnected systems.</p>
+        <p>NICO TechAssist addresses this challenge by providing a structured platform for managing the complete IT service lifecycle while maintaining organizational separation, strict tenant access controls, and complete operational traceability.</p>
+      </article>
+
+      <article class="card">
+        <h2>Core Capabilities</h2>
+        <div class="capabilities-grid">
+          <div class="capability-item">Multi-tenant client management</div>
+          <div class="capability-item">IT service desk & tickets</div>
+          <div class="capability-item">Technician assignments</div>
+          <div class="capability-item">Hardware asset lifecycle tracking</div>
+          <div class="capability-item">Maintenance history logs</div>
+          <div class="capability-item">SLA policy management</div>
+          <div class="capability-item">Role-based access control (RBAC)</div>
+          <div class="capability-item">Tenant-aware authorization</div>
+          <div class="capability-item">Audit logging & traceability</div>
+          <div class="capability-item">REST API architecture</div>
+          <div class="capability-item">PostgreSQL relational data model</div>
+          <div class="capability-item">Web dashboard (Planned Phase)</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Proposed Architecture</h2>
+        <p>The platform is developed using a layered Flask architecture with PostgreSQL as the primary database engine. The architecture explicitly separates authentication, authorization, tenant isolation, API routes, business services, database models, validation schemas, error handling, and supporting utilities.</p>
+        <p>The multi-tenant design enables an MSP environment to support multiple client organizations concurrently while strictly restricting users to the organizations and resources they are explicitly authorized to access.</p>
+      </article>
+
+      <article class="card">
+        <h2>Development Roadmap & Current Status</h2>
+        
+        <div class="status-banner">
+          <h3>Phase 2 Completed & Verified</h3>
+          <p>The foundational database domain, multi-tenant data model, asset structures, ticket lifecycle models, SLA engine schema, audit logging, migrations, seed data, and DB unit testing have been fully validated.</p>
+        </div>
+
+        <ol class="roadmap-list">
+          <li class="roadmap-step completed">Phase 1: Application Foundation</li>
+          <li class="roadmap-step completed">Phase 2: Database Domain Foundation</li>
+          <li class="roadmap-step current">Phase 3: Authentication & RBAC (Current Focus)</li>
+          <li class="roadmap-step">Phase 4: Multi-Tenant Authorization</li>
+          <li class="roadmap-step">Phase 5: Ticket Lifecycle Engine</li>
+          <li class="roadmap-step">Phase 6: Asset Lifecycle Engine</li>
+          <li class="roadmap-step">Phase 7: SLA Engine</li>
+          <li class="roadmap-step">Phase 8: Audit & Analytics</li>
+          <li class="roadmap-step">Phase 9: REST API Hardening</li>
+          <li class="roadmap-step">Phase 10: Web Dashboard</li>
+          <li class="roadmap-step">Phase 11: Deployment & Production Validation</li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <h2>Portfolio Purpose</h2>
+        <p>This project demonstrates practical software engineering, database design, systems analysis, IT service management architecture, multi-tenant application design, API development, testing, and technology-enabled business process improvement.</p>
+      </article>
+
+      <article class="card">
+        <h2>Technology Stack</h2>
+        <div class="tech-stack">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">SQLAlchemy</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Flask-Migrate</span>
+          <span class="tech-tag">Alembic</span>
+          <span class="tech-tag">Pytest</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">Docker Compose</span>
+          <span class="tech-tag">Ruff</span>
+          <span class="tech-tag">Black</span>
+        </div>
+        <a href="https://github.com/Tikondwe138" target="_blank" rel="noopener noreferrer" class="btn">
+          View GitHub Profile →
+        </a>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
